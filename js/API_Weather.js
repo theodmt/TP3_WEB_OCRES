@@ -14,12 +14,20 @@ class API_WEATHER{
     if(city === undefined){
       city = "paris";
     }
+
+    else{
+      city=document.getElementById("city-input-button").value;
+    }
     this.city = city;
   }
+
+
+
 
   // Faire la requete à l'API openweathermap
   // Retourne une promise
   fetchTodayForecast(){
+
     return axios
     .get(`${API_URL}?q=${this.city}&units=metric&appid=${API_KEY}`, {
       crossdomain: true
